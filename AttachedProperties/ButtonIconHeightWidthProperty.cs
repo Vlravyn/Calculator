@@ -32,24 +32,4 @@ namespace Calculator.WPF.AttachedProperties
 
         public static void SetValue(DependencyObject d, double value) => d.SetValue(IconHeightWidthProperty, value);
     }
-    public class KeyBindingAttachedProperty : Button
-    {
-        private ObservableCollection<Key> _keyBindings;
-
-        public ObservableCollection<Key> KeyBindings
-        {
-            get { return _keyBindings; }
-            set { _keyBindings = value; }
-        }
-
-        public static readonly DependencyProperty KeyBindingsProperty = DependencyProperty.RegisterAttached(nameof(KeyBindings), typeof(Key), typeof(ButtonBase), new PropertyMetadata(new PropertyChangedCallback(OnHeightWidthChanged)));
-
-        private static void OnHeightWidthChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-        }
-
-        public static Key GetValue(DependencyObject d) => (Key)d.GetValue(KeyBindingsProperty);
-
-        public static void SetValue(DependencyObject d, Key value) => d.SetValue(KeyBindingsProperty, value);
-    }
 }

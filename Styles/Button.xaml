@@ -47,16 +47,18 @@
         TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource VeryLightBlueBrush}" />
         <Style.Triggers>
-            <EventTrigger RoutedEvent="PreviewMouseDown">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <ColorAnimation
+            <Trigger Property="IsPressed" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
                             Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
                             To="{StaticResource OldBlue}"
                             Duration="0:0:0:0.1" />
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+            </Trigger>
             <EventTrigger RoutedEvent="PreviewMouseUp">
                 <BeginStoryboard>
                     <Storyboard>
